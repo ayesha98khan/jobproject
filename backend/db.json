@@ -1,0 +1,42 @@
+{
+  "users": [],
+  "jobs": [
+    {
+      "id": "job-1",
+      "title": "Frontend Intern",
+      "company": "Nova Labs",
+      "companyImage": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+      "location": "Remote",
+      "salary": "$20/hr",
+      "type": "Internship",
+      "description": "Help build reusable React components and collaborate with design team.",
+      "industry": "SaaS / Developer Tools",
+      "companySize": "80 employees",
+      "founded": "2019",
+      "website": "https://novalabs.example.com",
+      "companyOverview": "Nova Labs builds modern tools that help startups ship products faster with clean, scalable frontend systems.",
+      "benefits": ["Weekly mentorship sessions", "Remote-first collaboration", "Fast learning environment"],
+      "postedBy": "recruiter@nava.com",
+      "postedAt": "2026-01-08"
+    },
+    {
+      "id": "job-2",
+      "title": "Backend Engineer",
+      "company": "CloudScale",
+      "companyImage": "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=80",
+      "location": "Austin, TX",
+      "salary": "$95k - $115k",
+      "type": "Full-time",
+      "description": "Design APIs and maintain microservices for high-throughput systems.",
+      "industry": "Cloud Infrastructure",
+      "companySize": "230 employees",
+      "founded": "2015",
+      "website": "https://cloudscale.example.com",
+      "companyOverview": "CloudScale powers resilient infrastructure for growth-stage companies and mission-critical backend systems.",
+      "benefits": ["Health benefits", "Hybrid flexibility", "Leadership coaching"],
+      "postedBy": "hr@cloudscale.com",
+      "postedAt": "2026-01-12"
+    }
+  ],
+  "applications": []
+}
