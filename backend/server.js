@@ -13,6 +13,13 @@ const { connectDB } = require("./db");
 const healthRoutes = require("./routes/health");
 const authRoutes = require("./routes/auth");
 const jobRoutes = require("./routes/jobs");
+// Global error handler (keep this after routes)
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.status || 500).json({
+    message: err.message || "Something went wrong",
+  });
+});
 
 const app = express();
 
