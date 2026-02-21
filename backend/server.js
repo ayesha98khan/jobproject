@@ -1,4 +1,11 @@
 require("dotenv").config();
+const required = ["JWT_SECRET", "MONGODB_URI"];
+for (const key of required) {
+  if (!process.env[key]) {
+    console.error(`Missing environment variable: ${key}`);
+    process.exit(1);
+  }
+}
 const express = require("express");
 const cors = require("cors");
 const { connectDB } = require("./db");
