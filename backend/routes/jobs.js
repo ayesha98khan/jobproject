@@ -2,11 +2,25 @@ const router = require("express").Router();
 const Job = require("../models/Job");
 const auth = require("../middleware/auth");
 
-// ✅ Public: list jobs (latest first)
+// ✅ Public: list jobs with pagination
 router.get("/", async (req, res, next) => {
   try {
-    const jobs = await Job.find().sort({ createdAt: -1 }).limit(100);
-    res.json(jobs);
+    const page = Math.max(1, Number(req.query.page || 1));
+    const limit = Math.min(50, Math.max(1, Number(req.query.limit || 10)));
+    const skip = (page - 1) * limit;
+
+    const [jobs, total] = await Promise.all([
+      Job.find().sort({ createdAt: -1 }).skip(skip).limit(limit),
+      Job.countDocuments(),
+    ]);
+
+    res.json({
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+      jobs,
+    });
   } catch (err) {
     next(err);
   }
