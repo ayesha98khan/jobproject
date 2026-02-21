@@ -11,7 +11,22 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+// ✅ Protected: list jobs created by the logged-in recruiter
+router.get("/mine", auth, async (req, res, next) => {
+  try {
+    if (req.user?.role !== "recruiter") {
+      return res.status(403).json({ message: "Only recruiters can view this" });
+    }
 
+    const jobs = await Job.find({ createdBy: req.user.id })
+      .sort({ createdAt: -1 })
+      .limit(100);
+
+    res.json(jobs);
+  } catch (err) {
+    next(err);
+  }
+});
 // ✅ Protected: create job (ONLY recruiters)
 router.post("/", auth, async (req, res, next) => {
   try {
